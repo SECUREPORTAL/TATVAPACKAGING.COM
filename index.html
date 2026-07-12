@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tatva Packagings | Packaging that protects what matters</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<style>
+  :root{
+    --cream:#FAF7F1;
+    --cream-2:#F2EDE2;
+    --ink:#1E2A33;
+    --ink-soft:#4B5963;
+    --navy:#0C447C;
+    --navy-deep:#042C53;
+    --amber:#BA7517;
+    --amber-light:#EFD9B0;
+    --line:#DAD2C0;
+    --white:#FFFFFF;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Jost', sans-serif;
+    font-weight:400;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:'Cormorant Garamond', serif;
+    font-weight:500;
+    color:var(--navy-deep);
+    margin:0;
+    letter-spacing:0.3px;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px;}
+  .eyebrow{
+    font-size:13px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    color:var(--amber);
+    font-weight:500;
+    margin-bottom:14px;
+    display:inline-block;
+  }
+  /* ---------- header ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(250,247,241,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 32px;max-width:1180px;margin:0 auto;
+  }
+  .brand{display:flex;align-items:center;gap:12px;}
+  .brand-mark{width:34px;height:34px;flex-shrink:0;}
+  .brand-text{font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--navy-deep);letter-spacing:1px;}
+  .brand-text span{display:block;font-family:'Jost',sans-serif;font-size:10px;letter-spacing:3px;color:var(--ink-soft);font-weight:400;margin-top:1px;}
+  nav.links{display:flex;gap:38px;font-size:14.5px;letter-spacing:0.3px;}
+  nav.links a{position:relative;color:var(--ink-soft);transition:color .2s;}
+  nav.links a:hover{color:var(--navy);}
+  nav.links a::after{
+    content:'';position:absolute;left:0;bottom:-6px;width:0;height:1px;background:var(--amber);
+    transition:width .25s;
+  }
+  nav.links a:hover::after{width:100%;}
+  .nav-cta{
+    border:1px solid var(--navy);color:var(--navy);
+    padding:10px 22px;font-size:13.5px;letter-spacing:1px;
+    transition:all .25s;
+  }
+  .nav-cta:hover{background:var(--navy);color:var(--white);}
+  .menu-btn{display:none;background:none;border:none;font-size:26px;color:var(--navy-deep);cursor:pointer;}
+
+  /* ---------- hero ---------- */
+  .hero{
+    padding:110px 0 90px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero .wrap{display:grid;grid-template-columns:1.1fr 0.9fr;gap:60px;align-items:center;}
+  .hero h1{font-size:58px;line-height:1.12;}
+  .hero h1 em{font-style:italic;color:var(--amber);}
+  .hero p.lead{
+    margin-top:24px;font-size:17.5px;color:var(--ink-soft);max-width:480px;
+  }
+  .hero-ctas{margin-top:38px;display:flex;gap:18px;align-items:center;}
+  .btn-primary{
+    background:var(--navy);color:var(--white);padding:15px 32px;
+    font-size:14px;letter-spacing:1.5px;text-transform:uppercase;
+    border:1px solid var(--navy);transition:all .25s;
+  }
+  .btn-primary:hover{background:var(--navy-deep);border-color:var(--navy-deep);}
+  .btn-ghost{
+    padding:15px 0;font-size:14px;letter-spacing:1px;color:var(--navy);
+    border-bottom:1px solid var(--navy);transition:opacity .2s;
+  }
+  .btn-ghost:hover{opacity:.6;}
+  .hero-art{position:relative;display:flex;justify-content:center;}
+  .crate{width:100%;max-width:420px;}
+  .stat-row{
+    margin-top:60px;display:flex;gap:56px;border-top:1px solid var(--line);padding-top:32px;
+  }
+  .stat-num{font-family:'Cormorant Garamond',serif;font-size:34px;color:var(--navy);}
+  .stat-label{font-size:12.5px;color:var(--ink-soft);letter-spacing:0.5px;margin-top:4px;}
+
+  /* ---------- section generic ---------- */
+  section{padding:100px 0;}
+  .section-head{max-width:640px;margin-bottom:60px;}
+  .section-head h2{font-size:40px;}
+  .section-head p{color:var(--ink-soft);margin-top:18px;font-size:16.5px;}
+  .divider-line{width:64px;height:1px;background:var(--amber);margin:22px 0;}
+
+  /* ---------- about ---------- */
+  .about{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .about .wrap{display:grid;grid-template-columns:0.9fr 1.1fr;gap:70px;align-items:start;}
+  .about-figure{
+    background:var(--cream-2);
+    border:1px solid var(--line);
+    aspect-ratio:4/5;
+    display:flex;align-items:center;justify-content:center;
+    position:relative;
+  }
+  .word-tatva{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;color:var(--navy);position:absolute;bottom:26px;left:26px;}
+  .word-tatva span{display:block;font-family:'Jost',sans-serif;font-style:normal;font-size:11px;letter-spacing:2px;color:var(--ink-soft);margin-top:4px;}
+  .about-body p{color:var(--ink-soft);font-size:16px;margin-bottom:18px;}
+  .pillars{margin-top:36px;display:grid;grid-template-columns:1fr 1fr;gap:26px;}
+  .pillar h3{font-size:19px;color:var(--navy);}
+  .pillar p{font-size:14.5px;color:var(--ink-soft);margin-top:6px;}
+
+  /* ---------- services ---------- */
+  .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+  .service-card{
+    background:var(--cream);padding:42px 36px;transition:background .25s;
+  }
+  .service-card:hover{background:var(--white);}
+  .service-num{font-family:'Cormorant Garamond',serif;font-size:15px;color:var(--amber);letter-spacing:1px;}
+  .service-card h3{font-size:23px;margin-top:16px;}
+  .service-card p{font-size:14.5px;color:var(--ink-soft);margin-top:12px;}
+
+  /* ---------- process ---------- */
+  .process{background:var(--navy-deep);color:#EAE3D2;}
+  .process h2{color:var(--white);}
+  .process .section-head p{color:#B9C5CF;}
+  .process-list{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;}
+  .process-step{border-top:1px solid rgba(255,255,255,0.18);padding-top:24px;}
+  .process-step .step-num{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:30px;color:var(--amber-light);}
+  .process-step h3{color:var(--white);font-size:19px;margin-top:14px;}
+  .process-step p{color:#AEBBC5;font-size:14px;margin-top:8px;}
+
+  /* ---------- why us / stats ---------- */
+  .why .wrap{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center;}
+  .check-list{margin-top:30px;}
+  .check-item{display:flex;gap:16px;padding:18px 0;border-bottom:1px solid var(--line);}
+  .check-item:first-child{border-top:1px solid var(--line);}
+  .check-mark{color:var(--amber);font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px;flex-shrink:0;}
+  .check-item h3{font-size:17.5px;color:var(--navy-deep);font-weight:500;font-family:'Jost',sans-serif;}
+  .check-item p{font-size:14px;color:var(--ink-soft);margin-top:4px;}
+  .why-figure{background:var(--cream-2);border:1px solid var(--line);padding:50px;text-align:center;}
+  .why-figure .big-quote{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:28px;color:var(--navy);line-height:1.4;}
+  .why-figure .attrib{margin-top:22px;font-size:13px;letter-spacing:1px;color:var(--ink-soft);text-transform:uppercase;}
+
+  /* ---------- contact ---------- */
+  .contact{background:var(--white);border-top:1px solid var(--line);}
+  .contact .wrap{display:grid;grid-template-columns:0.85fr 1.15fr;gap:70px;}
+  .contact-info h3{font-size:20px;color:var(--navy-deep);margin-top:34px;}
+  .contact-info p{color:var(--ink-soft);font-size:15px;margin-top:8px;}
+  .contact-info .info-block{padding-top:18px;border-top:1px solid var(--line);margin-top:18px;}
+  .contact-info .info-block:first-of-type{border-top:none;margin-top:0;padding-top:0;}
+
+  form#contact-form{display:flex;flex-direction:column;gap:22px;}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
+  .field{display:flex;flex-direction:column;gap:8px;}
+  .field label{font-size:12.5px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-soft);}
+  .field input, .field textarea, .field select{
+    border:none;border-bottom:1px solid var(--line);background:transparent;
+    padding:10px 2px;font-family:'Jost',sans-serif;font-size:15.5px;color:var(--ink);
+    transition:border-color .2s;
+  }
+  .field input:focus, .field textarea:focus, .field select:focus{
+    outline:none;border-bottom-color:var(--navy);
+  }
+  .field textarea{resize:vertical;min-height:110px;}
+  .submit-row{display:flex;align-items:center;gap:22px;margin-top:8px;}
+  .submit-btn{
+    background:var(--navy);color:var(--white);padding:16px 38px;border:none;
+    font-size:13.5px;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;
+    transition:background .25s;
+  }
+  .submit-btn:hover{background:var(--navy-deep);}
+  .submit-btn:disabled{opacity:.55;cursor:not-allowed;}
+  .form-status{font-size:14px;color:var(--ink-soft);}
+  .form-status.success{color:#3B6D11;}
+  .form-status.error{color:#A32D2D;}
+
+  /* ---------- footer ---------- */
+  footer{background:var(--navy-deep);color:#9FB1BD;padding:56px 0 30px;}
+  footer .wrap{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:30px;}
+  .footer-brand{font-family:'Cormorant Garamond',serif;color:var(--white);font-size:22px;}
+  .footer-cols{display:flex;gap:60px;}
+  .footer-col h4{color:var(--white);font-size:13px;letter-spacing:1.5px;text-transform:uppercase;font-weight:500;margin-bottom:14px;}
+  .footer-col a, .footer-col p{display:block;color:#9FB1BD;font-size:14px;margin-bottom:8px;}
+  .footer-col a:hover{color:var(--amber-light);}
+  .footer-bottom{
+    border-top:1px solid rgba(255,255,255,0.12);margin-top:44px;padding-top:24px;
+    max-width:1180px;margin-left:auto;margin-right:auto;padding-left:32px;padding-right:32px;
+    font-size:12.5px;color:#7C8E9A;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
+  }
+
+  @media (max-width: 900px){
+    nav.links{display:none;}
+    .menu-btn{display:block;}
+    .hero .wrap, .about .wrap, .why .wrap, .contact .wrap{grid-template-columns:1fr;}
+    .hero h1{font-size:40px;}
+    .services-grid{grid-template-columns:1fr;}
+    .process-list{grid-template-columns:1fr 1fr;}
+    .pillars{grid-template-columns:1fr;}
+    .form-row{grid-template-columns:1fr;}
+    .stat-row{flex-wrap:wrap;gap:30px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="brand">
+      <svg class="brand-mark" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="150,60 230,105 150,150 70,105" fill="#85B7EB"/>
+        <polygon points="70,105 150,150 150,230 70,185" fill="#185FA5"/>
+        <polygon points="150,150 230,105 230,185 150,230" fill="#BA7517"/>
+      </svg>
+      <div class="brand-text">Tatva<span>PACKAGINGS</span></div>
+    </div>
+    <nav class="links">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#why">Why us</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#contact" class="nav-cta">Get a quote</a>
+    <button class="menu-btn" aria-label="Menu">&#9776;</button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Packaging, engineered with purpose</span>
+      <h1>The <em>essence</em><br>of protection,<br>delivered.</h1>
+      <p class="lead">Tatva Packagings designs and manufactures packaging that keeps what's inside intact — from first fold to final mile. Clean engineering, careful materials, and a finish your brand can stand behind.</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn-primary">Request a quote</a>
+        <a href="#services" class="btn-ghost">Explore our work</a>
+      </div>
+      <div class="stat-row">
+        <div>
+          <div class="stat-num">12+</div>
+          <div class="stat-label">Years in&nbsp;packaging</div>
+        </div>
+        <div>
+          <div class="stat-num">400+</div>
+          <div class="stat-label">Clients served</div>
+        </div>
+        <div>
+          <div class="stat-num">99.2%</div>
+          <div class="stat-label">On-time dispatch</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-art">
+      <svg class="crate" viewBox="0 0 420 420" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="210,40 360,120 210,200 60,120" fill="#E6F1FB" stroke="#185FA5" stroke-width="1"/>
+        <polygon points="60,120 210,200 210,380 60,300" fill="#85B7EB" stroke="#185FA5" stroke-width="1"/>
+        <polygon points="210,200 360,120 360,300 210,380" fill="#0C447C" stroke="#042C53" stroke-width="1"/>
+        <polygon points="210,200 360,120 360,170 210,250" fill="#BA7517" opacity="0.85"/>
+        <line x1="210" y1="40" x2="210" y2="200" stroke="#185FA5" stroke-width="0.6" opacity="0.5"/>
+        <line x1="60" y1="120" x2="210" y2="200" stroke="#185FA5" stroke-width="0.6" opacity="0.4"/>
+        <line x1="360" y1="120" x2="210" y2="200" stroke="#042C53" stroke-width="0.6" opacity="0.4"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="about-figure">
+      <div class="word-tatva">Tatva<span>the essential element</span></div>
+    </div>
+    <div class="about-body">
+      <span class="eyebrow">About us</span>
+      <h2>Built on a simple idea</h2>
+      <div class="divider-line"></div>
+      <p>"Tatva" means the fundamental essence of a thing — and that's how we approach packaging. Not as an afterthought, but as the essential element that protects a product's value all the way from the factory floor to the customer's doorstep.</p>
+      <p>We work with manufacturers, e-commerce brands, and exporters across categories — corrugated boxes, rigid cartons, flexible pouches, and custom protective packaging — engineered to fit the product, the route, and the budget.</p>
+      <div class="pillars">
+        <div class="pillar">
+          <h3>Material integrity</h3>
+          <p>Sourced board and films tested for strength, not just appearance.</p>
+        </div>
+        <div class="pillar">
+          <h3>Precision tooling</h3>
+          <p>Dies and moulds built to exact specification, run after run.</p>
+        </div>
+        <div class="pillar">
+          <h3>Sustainable by default</h3>
+          <p>Recyclable substrates and right-sized design to cut waste.</p>
+        </div>
+        <div class="pillar">
+          <h3>Reliable timelines</h3>
+          <p>Production schedules you can plan a launch around.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">What we make</span>
+      <h2>Packaging for every stage of the journey</h2>
+      <p>From the warehouse shelf to the unboxing moment, each format is engineered for its job.</p>
+    </div>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-num">01</div>
+      <h3>Corrugated boxes</h3>
+      <p>Shipping and transit cartons engineered for stacking strength and cost-efficient freight.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">02</div>
+      <h3>Rigid &amp; gift cartons</h3>
+      <p>Premium presentation boxes for retail, gifting, and brand unboxing experiences.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">03</div>
+      <h3>Flexible pouches</h3>
+      <p>Food-grade and barrier pouches for FMCG, agri, and pharma products.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">04</div>
+      <h3>Protective inserts</h3>
+      <p>Foam, honeycomb, and moulded pulp inserts that cradle fragile and precision goods.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">05</div>
+      <h3>Industrial packaging</h3>
+      <p>Heavy-duty crates, pallets, and export packaging for bulk and machinery shipments.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">06</div>
+      <h3>Custom design &amp; print</h3>
+      <p>Structural design and offset/flexo printing tailored to your brand specification.</p>
+    </div>
+  </div>
+</section>
+
+<section class="process" id="process">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">How we work</span>
+      <h2>From brief to dispatch</h2>
+      <p>A straightforward process so your packaging arrives right, the first time.</p>
+    </div>
+    <div class="process-list">
+      <div class="process-step">
+        <div class="step-num">I</div>
+        <h3>Consultation</h3>
+        <p>We understand your product, route, and volumes before proposing a format.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">II</div>
+        <h3>Sampling</h3>
+        <p>Physical prototypes and drop tests, so approvals are based on the real thing.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">III</div>
+        <h3>Production</h3>
+        <p>Quality-checked runs on calibrated machinery, tracked batch by batch.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">IV</div>
+        <h3>Dispatch</h3>
+        <p>Palletised, labelled, and delivered on a schedule you can rely on.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="why" id="why">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Why Tatva</span>
+      <h2>Packaging partners, not just suppliers</h2>
+      <div class="check-list">
+        <div class="check-item">
+          <div class="check-mark">&#10003;</div>
+          <div>
+            <h3>In-house design &amp; tooling</h3>
+            <p>No third-party delays — structural changes happen on-site.</p>
+          </div>
+        </div>
+        <div class="check-item">
+          <div class="check-mark">&#10003;</div>
+          <div>
+            <h3>Transparent pricing</h3>
+            <p>Clear cost breakdowns by material, print, and tooling — no surprises.</p>
+          </div>
+        </div>
+        <div class="check-item">
+          <div class="check-mark">&#10003;</div>
+          <div>
+            <h3>Quality you can test</h3>
+            <p>Burst, compression, and barrier testing available on every order.</p>
+          </div>
+        </div>
+        <div class="check-item">
+          <div class="check-mark">&#10003;</div>
+          <div>
+            <h3>Scales with your volumes</h3>
+            <p>From short pilot runs to recurring bulk dispatch schedules.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="why-figure">
+      <div class="big-quote">"Good packaging is invisible when it works — and very expensive when it doesn't."</div>
+      <div class="attrib">— Tatva Packagings, on design philosophy</div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="contact-info">
+      <span class="eyebrow">Get in touch</span>
+      <h2>Let's package it right</h2>
+      <div class="divider-line"></div>
+      <div class="info-block">
+        <h3>Sales &amp; quotes</h3>
+        <p>Tell us your product and volumes — we'll respond with a format and a quote.</p>
+      </div>
+      <div class="info-block">
+        <h3>Email</h3>
+        <p>tatvapackagings@gmail.com</p>
+      </div>
+      <div class="info-block">
+        <h3>Hours</h3>
+        <p>Monday – Saturday, 9:30am – 6:30pm IST</p>
+      </div>
+    </div>
+
+    <form id="contact-form">
+      <div class="form-row">
+        <div class="field">
+          <label for="from_name">Your name</label>
+          <input type="text" id="from_name" name="from_name" required>
+        </div>
+        <div class="field">
+          <label for="email">Your email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+      </div>
+      <div class="field">
+        <label for="subject">Subject</label>
+        <input type="text" id="subject" name="subject" placeholder="e.g. Quote for shipping cartons" required>
+      </div>
+      <div class="field">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Tell us about your product, quantities, and timelines..." required></textarea>
+      </div>
+      <input type="hidden" id="to_email" name="to_email" value="tatvapackagings@gmail.com">
+      <div class="submit-row">
+        <button type="submit" class="submit-btn" id="submit-btn">Send message</button>
+        <span class="form-status" id="form-status"></span>
+      </div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="footer-brand">Tatva Packagings</div>
+      <p style="color:#9FB1BD;font-size:13.5px;margin-top:10px;max-width:260px;">Packaging that protects what matters, from first fold to final mile.</p>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:tatvapackagings@gmail.com">tatvapackagings@gmail.com</a>
+        <p>Mon–Sat, 9:30am–6:30pm IST</p>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 Tatva Packagings. All rights reserved.</span>
+    <span>Crafted with care.</span>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    emailjs.init({ publicKey: "mFtvCUxTejLCn0w20" });
+
+    var form = document.getElementById('contact-form');
+    var statusEl = document.getElementById('form-status');
+    var btn = document.getElementById('submit-btn');
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+      statusEl.textContent = '';
+      statusEl.className = 'form-status';
+
+      emailjs.sendForm('service_abdvyms', 'template_l6gppd8', form)
+        .then(function(){
+          statusEl.textContent = 'Thank you — your message has been sent. We will get back to you shortly.';
+          statusEl.className = 'form-status success';
+          form.reset();
+        })
+        .catch(function(err){
+          statusEl.textContent = 'Something went wrong sending your message. Please try again or email us directly.';
+          statusEl.className = 'form-status error';
+          console.error('EmailJS error:', err);
+        })
+        .finally(function(){
+          btn.disabled = false;
+          btn.textContent = 'Send message';
+        });
+    });
+  })();
+</script>
+
+</body>
+</html>
